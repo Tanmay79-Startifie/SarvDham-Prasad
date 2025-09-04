@@ -96,13 +96,7 @@ const HeroSlideshow = () => {
               >
                 {index === currentSlide && (
                     <div className="space-y-3 sm:space-y-4 md:space-y-6 text-white">
-                    {/* Sacred Symbol */}
-                    <div className="flex items-center space-x-3 sm:space-x-4">
-                      <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-divine rounded-full flex items-center justify-center shadow-divine">
-                        <Sparkles className="w-6 h-6 sm:w-8 sm:h-8 text-primary-foreground" />
-                      </div>
-                      <div className="w-1 h-12 sm:w-2 sm:h-16 bg-gradient-divine rounded-full"></div>
-                    </div>
+                    c:\Users\tanma\OneDrive\Pictures\Screenshots\srvdham-page.png
 
                     {/* Title */}
                     <div className="space-y-1 sm:space-y-2">

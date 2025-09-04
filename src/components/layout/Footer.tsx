@@ -10,14 +10,19 @@ const Footer = () => {
           <div className="space-y-4">
             <div className="flex items-center space-x-2 sm:space-x-3">
               <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-divine rounded-xl flex items-center justify-center shadow-golden">
-                <span className="text-2xl sm:text-3xl text-primary-foreground font-bold">ॐ</span>
+                <img
+                  src="/src/assets/srvdham-logo.png"  // apne logo ka path rakho (public/images folder me)
+                  alt="SarvdhamPrasad Logo"
+                  className="w-10 h-10 sm:w-14 sm:h-14 object-contain"
+                />
               </div>
+
               <div>
                 <h3 className="text-lg sm:text-elderly-xl font-bold text-primary">
-                  ब्रज दिव्य डिलीवरी
+                  सर्वधाम प्रसाद
                 </h3>
                 <p className="text-sm sm:text-elderly-base text-muted-foreground">
-                  Braj Divine Delivery
+                  SarvDham Prasad
                 </p>
               </div>
             </div>

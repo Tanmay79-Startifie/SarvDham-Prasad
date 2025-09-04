@@ -23,17 +23,22 @@ const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 lg:space-x-3 group">
             <div className="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-divine rounded-xl flex items-center justify-center shadow-golden group-hover:shadow-golden-lg transition-all duration-300 group-hover:scale-110">
-              <span className="text-xl lg:text-2xl text-primary-foreground font-bold group-hover:animate-pulse">ॐ</span>
+              <img
+                src="/src/assets/srvdham-logo.png"  
+                alt="SarvdhamPrasad Logo"
+                className="w-8 h-8 lg:w-10 lg:h-10 object-contain group-hover:animate-pulse"
+              />
             </div>
             <div className="hidden sm:block">
               <h1 className="text-base lg:text-lg font-bold bg-gradient-divine bg-clip-text text-transparent leading-none">
-                ब्रज दिव्य डिलीवरी
+                सर्वधाम प्रसाद
               </h1>
               <p className="text-sm lg:text-base text-muted-foreground leading-none">
-                Braj Divine Delivery
+                SarvDham Prasad
               </p>
             </div>
           </Link>
+
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-2 xl:space-x-3 bg-muted/30 rounded-full px-4 py-2 backdrop-blur-sm border border-border/50">
@@ -44,8 +49,8 @@ const Header = () => {
                   size="default"
                   className={`
                     text-base xl:text-lg px-4 xl:px-6 py-2 rounded-full transition-all duration-300
-                    ${isActive(item.href) 
-                      ? 'bg-gradient-divine text-primary-foreground shadow-golden transform scale-105' 
+                    ${isActive(item.href)
+                      ? 'bg-gradient-divine text-primary-foreground shadow-golden transform scale-105'
                       : 'hover:bg-gradient-to-r hover:from-primary/10 hover:to-saffron/10 hover:text-primary hover:scale-105'
                     }
                   `}
@@ -91,8 +96,8 @@ const Header = () => {
                   size="lg"
                   className={`
                     w-full justify-start text-base rounded-xl transition-all duration-300
-                    ${isActive(item.href) 
-                      ? 'bg-gradient-divine text-primary-foreground shadow-golden' 
+                    ${isActive(item.href)
+                      ? 'bg-gradient-divine text-primary-foreground shadow-golden'
                       : 'hover:bg-gradient-to-r hover:from-primary/10 hover:to-saffron/10 hover:text-primary hover:translate-x-2'
                     }
                   `}
