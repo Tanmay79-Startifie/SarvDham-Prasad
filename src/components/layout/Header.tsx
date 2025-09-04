@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Phone, MapPin } from "lucide-react";
 import { useState } from "react";
+import logo from "/srvdham-logo.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -24,7 +25,7 @@ const Header = () => {
           <Link to="/" className="flex items-center space-x-2 lg:space-x-3 group">
             <div className="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-divine rounded-xl flex items-center justify-center shadow-golden group-hover:shadow-golden-lg transition-all duration-300 group-hover:scale-110">
               <img
-                src="/src/srvdham-logo.png"  
+                src={logo}
                 alt="SarvdhamPrasad Logo"
                 className="w-8 h-8 lg:w-10 lg:h-10 object-contain group-hover:animate-pulse"
               />
