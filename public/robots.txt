@@ -14,4 +14,4 @@ Disallow: /order-confirmation
 
 
 # Sitemap reference
-Sitemap: https://sarvdhamprasad.online/sitemap.xml
+Sitemap: https://www.sarvdhamprasad.online/sitemap.xml
