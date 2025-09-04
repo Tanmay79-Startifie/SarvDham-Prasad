@@ -96,7 +96,7 @@ const HeroSlideshow = () => {
               >
                 {index === currentSlide && (
                     <div className="space-y-3 sm:space-y-4 md:space-y-6 text-white">
-                    c:\Users\tanma\OneDrive\Pictures\Screenshots\srvdham-page.png
+              
 
                     {/* Title */}
                     <div className="space-y-1 sm:space-y-2">

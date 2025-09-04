@@ -24,7 +24,7 @@ const Header = () => {
           <Link to="/" className="flex items-center space-x-2 lg:space-x-3 group">
             <div className="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-divine rounded-xl flex items-center justify-center shadow-golden group-hover:shadow-golden-lg transition-all duration-300 group-hover:scale-110">
               <img
-                src="/src/assets/srvdham-logo.png"  
+                src="/src/srvdham-logo.png"  
                 alt="SarvdhamPrasad Logo"
                 className="w-8 h-8 lg:w-10 lg:h-10 object-contain group-hover:animate-pulse"
               />

@@ -11,7 +11,7 @@ const Footer = () => {
             <div className="flex items-center space-x-2 sm:space-x-3">
               <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-divine rounded-xl flex items-center justify-center shadow-golden">
                 <img
-                  src="/src/assets/srvdham-logo.png"  // apne logo ka path rakho (public/images folder me)
+                  src="/src/srvdham-logo.png"  // apne logo ka path rakho (public/images folder me)
                   alt="SarvdhamPrasad Logo"
                   className="w-10 h-10 sm:w-14 sm:h-14 object-contain"
                 />
