@@ -1,0 +1,155 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Spiritual color palette */
+    --background: 47 45% 98%; /* Warm cream background */
+    --foreground: 15 25% 15%; /* Deep warm brown */
+
+    --card: 47 45% 96%; /* Lighter cream for cards */
+    --card-foreground: 15 25% 15%;
+
+    --popover: 47 45% 98%;
+    --popover-foreground: 15 25% 15%;
+
+    /* Sacred saffron as primary */
+    --primary: 32 85% 55%; /* Rich saffron */
+    --primary-foreground: 47 45% 98%;
+    --primary-glow: 32 85% 70%; /* Lighter saffron for effects */
+
+    /* Golden secondary */
+    --secondary: 45 70% 70%; /* Warm golden */
+    --secondary-foreground: 15 25% 15%;
+
+    /* Maroon accent */
+    --muted: 47 30% 92%; /* Very light cream */
+    --muted-foreground: 15 15% 45%;
+
+    --accent: 0 45% 35%; /* Deep maroon */
+    --accent-foreground: 47 45% 98%;
+
+    --destructive: 0 65% 51%;
+    --destructive-foreground: 47 45% 98%;
+
+    --border: 47 25% 88%;
+    --input: 47 25% 88%;
+    --ring: 32 85% 55%;
+
+    --radius: 0.75rem; /* Slightly larger radius for warmth */
+
+    /* Spiritual gradients */
+    --gradient-saffron: linear-gradient(135deg, hsl(32 85% 55%), hsl(32 85% 70%));
+    --gradient-golden: linear-gradient(135deg, hsl(45 70% 70%), hsl(47 60% 80%));
+    --gradient-divine: linear-gradient(135deg, hsl(32 85% 55%), hsl(0 45% 35%));
+    --gradient-sunset: linear-gradient(180deg, hsl(32 85% 70%) 0%, hsl(47 45% 98%) 100%);
+
+    /* Sacred shadows */
+    --shadow-divine: 0 10px 40px -10px hsl(32 85% 55% / 0.3);
+    --shadow-golden: 0 8px 32px -8px hsl(45 70% 70% / 0.25);
+    --shadow-soft: 0 4px 16px -4px hsl(15 25% 15% / 0.1);
+
+    /* Animations */
+    --transition-divine: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-gentle: all 0.3s ease-out;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-size: 18px; /* Larger base font for elderly users */
+  }
+
+  /* Large, readable typography for elderly users */
+  h1 { @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight; }
+  h2 { @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight; }
+  h3 { @apply text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold; }
+  h4 { @apply text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium; }
+  p { @apply text-base sm:text-lg md:text-xl leading-relaxed; }
+  
+  /* Spiritual animations */
+  .divine-glow {
+    box-shadow: var(--shadow-divine);
+    transition: var(--transition-divine);
+  }
+  
+  .divine-glow:hover {
+    box-shadow: 0 15px 50px -15px hsl(32 85% 55% / 0.4);
+    transform: translateY(-2px);
+  }
+  
+  .floating-diya {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .gentle-pulse {
+    animation: gentle-pulse 2s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+  }
+  
+  @keyframes gentle-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+  }
+  
+  @keyframes om-rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  .om-symbol {
+    animation: om-rotate 20s linear infinite;
+  }
+}
