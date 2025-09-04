@@ -12,8 +12,7 @@ const Home = () => {
     <div className="min-h-screen bg-background">
       <Header />
       <main>
-        <HeroSlideshow />
-        <FeaturedProducts />
+        <HeroSlideshow />  
         <AboutSection />
         <CallToActionSections />
         <TestimonialsSection />
