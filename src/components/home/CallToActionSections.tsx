@@ -3,25 +3,31 @@ import { Card, CardContent } from "@/components/ui/card";
 import { ShoppingBag, Sparkles, ArrowRight, Gift } from "lucide-react";
 import { Link } from "react-router-dom";
 import prasadOfferings from "@/assets/prasad-offerings.jpg";
+import purifyImage from "@/assets/coming-soon.jpg";
 
 const CallToActionSections = () => {
   return (
-    <section className="py-10 sm:py-16 lg:py-20 bg-gradient-sunset">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-2 gap-4 md:gap-6 lg:gap-8">
+    <section className="py-10 sm:py-16 lg:py-20 bg-gradient-sunset overflow-hidden">
+      <div className="container mx-auto px-2 sm:px-4 max-w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-6 lg:gap-8">
           {/* Prasad Section */}
           <Card className="group hover:shadow-divine transition-all duration-500 hover:scale-105 bg-gradient-saffron border-none overflow-hidden rounded-3xl">
             <div className="relative">
               <img
                 src={prasadOfferings}
-                alt="Sacred Prasad"
+                alt="Fresh prasad offerings from Braj Dham"
                 className="w-full h-32 sm:h-40 md:h-48 lg:h-56 object-cover group-hover:scale-110 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
 
               {/* Floating elements */}
               <div className="absolute top-2 right-2 sm:top-3 sm:right-3 text-lg sm:text-xl floating-diya">🪔</div>
-              <div className="absolute bottom-2 left-2 sm:bottom-3 sm:left-3 text-base sm:text-lg floating-diya" style={{ animationDelay: "1s" }}>🌺</div>
+              <div
+                className="absolute bottom-2 left-2 sm:bottom-3 sm:left-3 text-base sm:text-lg floating-diya"
+                style={{ animationDelay: "1s" }}
+              >
+                🌺
+              </div>
             </div>
 
             <CardContent className="p-3 sm:p-4 md:p-6 text-center space-y-3 sm:space-y-4 text-primary-foreground">
@@ -30,12 +36,8 @@ const CallToActionSections = () => {
                   <ShoppingBag className="w-4 h-4 sm:w-6 sm:h-6" />
                 </div>
 
-                <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold">
-                  प्रसाद ग्रहण करें
-                </h3>
-                <p className="text-sm sm:text-base md:text-lg font-medium opacity-90">
-                  Receive Divine Prasad
-                </p>
+                <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold">प्रसाद ग्रहण करें</h3>
+                <p className="text-sm sm:text-base md:text-lg font-medium opacity-90">Receive Divine Prasad</p>
 
                 <p className="text-xs sm:text-sm md:text-base leading-relaxed opacity-80 hidden sm:block">
                   ब्रज धाम के पवित्र मंदिरों से ताज़ा और शुद्ध प्रसाद का आनंद लें।
@@ -48,45 +50,41 @@ const CallToActionSections = () => {
                     <Sparkles className="w-3 h-3 sm:w-4 sm:h-4" />
                     <span>50+ मंदिर</span>
                   </div>
-                  <div className="w-1 h-1 bg-white/50 rounded-full"></div>
+                  <div className="w-1 h-1 bg-white/50 rounded-full" />
                   <div className="flex items-center space-x-1">
                     <Gift className="w-3 h-3 sm:w-4 sm:h-4" />
                     <span>100% शुद्ध</span>
                   </div>
                 </div>
 
-                <Link to="/prasadam">
+                <Link to="/prasadam" aria-label="Order Prasad">
                   <Button
                     variant="outline"
                     size="sm"
-                    className="w-full flex items-center justify-center gap-2 
-             border-2 border-orange-700 text-orange-800 bg-white 
-             hover:bg-orange-600 hover:text-white hover:border-orange-600 
-             font-semibold rounded-lg transition-all duration-300 text-xs sm:text-sm mt-3"
+                    className="w-full flex items-center justify-center gap-2
+                      border-2 border-orange-700 text-orange-800 bg-white
+                      hover:bg-orange-600 hover:text-white hover:border-orange-600
+                      font-semibold rounded-lg transition-all duration-300 text-xs sm:text-sm mt-2"
                   >
                     <ShoppingBag className="w-3 h-3 sm:w-4 sm:h-4" />
                     <span>प्रसाद ऑर्डर करें</span>
                     <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
                   </Button>
-
                 </Link>
               </div>
             </CardContent>
           </Card>
 
-          {/* Spiritual Products Section */}
+          {/* Spiritual Products / Purify Section */}
           <Card className="group hover:shadow-divine transition-all duration-500 hover:scale-105 bg-gradient-divine border-none overflow-hidden rounded-3xl">
             <div className="relative">
-              <div className="w-full h-32 sm:h-40 md:h-48 lg:h-56 bg-gradient-to-br from-accent/20 to-accent/40 flex items-center justify-center">
-                <div className="text-center space-y-2">
-                  <div className="text-3xl sm:text-4xl md:text-6xl">🕉️</div>
-                  <div className="text-lg sm:text-xl md:text-2xl space-x-2">
-                    <span>📿</span>
-                    <span>🔱</span>
-                    <span>💧</span>
-                  </div>
-                </div>
-              </div>
+              {/* Image banner (same style as prasad card) */}
+              <img
+                src={purifyImage}
+                alt="Spiritual products to purify your home"
+                className="w-full h-32 sm:h-40 md:h-48 lg:h-56 object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/25 to-transparent" />
 
               {/* Coming Soon Badge */}
               <div className="absolute top-2 left-2 sm:top-3 sm:left-3 bg-accent text-accent-foreground px-2 py-1 sm:px-3 sm:py-1 rounded-full text-xs sm:text-sm font-medium shadow-soft">
@@ -95,7 +93,12 @@ const CallToActionSections = () => {
 
               {/* Floating elements */}
               <div className="absolute top-2 right-2 sm:top-3 sm:right-3 text-lg sm:text-xl floating-diya">🌟</div>
-              <div className="absolute bottom-2 left-2 sm:bottom-3 sm:left-3 text-base sm:text-lg floating-diya" style={{ animationDelay: "1.5s" }}>🚩</div>
+              <div
+                className="absolute bottom-2 left-2 sm:bottom-3 sm:left-3 text-base sm:text-lg floating-diya"
+                style={{ animationDelay: "1.5s" }}
+              >
+                🚩
+              </div>
             </div>
 
             <CardContent className="p-3 sm:p-4 md:p-6 text-center space-y-3 sm:space-y-4 text-primary-foreground">
@@ -104,12 +107,8 @@ const CallToActionSections = () => {
                   <Sparkles className="w-4 h-4 sm:w-6 sm:h-6" />
                 </div>
 
-                <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold">
-                  घर शुद्धी करें
-                </h3>
-                <p className="text-sm sm:text-base md:text-lg font-medium opacity-90">
-                  Purify Your Home
-                </p>
+                <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold">घर शुद्धी करें</h3>
+                <p className="text-sm sm:text-base md:text-lg font-medium opacity-90">Purify Your Home</p>
 
                 <p className="text-xs sm:text-sm md:text-base leading-relaxed opacity-80 hidden sm:block">
                   आध्यात्मिक उत्पादों से अपने घर को पावन बनाएं।
@@ -122,27 +121,26 @@ const CallToActionSections = () => {
                     <span>📿</span>
                     <span>माला</span>
                   </div>
-                  <div className="w-1 h-1 bg-white/50 rounded-full"></div>
+                  <div className="w-1 h-1 bg-white/50 rounded-full" />
                   <div className="flex items-center space-x-1">
                     <span>🏺</span>
                     <span>जल</span>
                   </div>
                 </div>
 
-                <Link to="/spiritual-products">
+                <Link to="/spiritual-products" aria-label="Spiritual products coming soon">
                   <Button
                     variant="outline"
                     size="sm"
                     className="w-full flex items-center justify-center gap-2
-             border-2 border-orange-700 text-orange-800 bg-white
-             hover:bg-orange-600 hover:text-white hover:border-orange-600
-             font-semibold rounded-lg transition-all duration-300 text-xs sm:text-sm mt-3"
+                      border-2 border-orange-700 text-orange-800 bg-white
+                      hover:bg-orange-600 hover:text-white hover:border-orange-600
+                      font-semibold rounded-lg transition-all duration-300 text-xs sm:text-sm mt-2"
                   >
                     <Gift className="w-3 h-3 sm:w-4 sm:h-4" />
                     <span>जल्द उपलब्ध</span>
                     <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
                   </Button>
-
                 </Link>
               </div>
             </CardContent>

@@ -27,7 +27,7 @@ const SpiritualProducts = () => {
   // Set up real-time subscription for spiritual products
   useEffect(() => {
     fetchProducts();
-    
+
     const channel = supabase
       .channel('spiritual-products-realtime')
       .on(
@@ -151,14 +151,14 @@ const SpiritualProducts = () => {
                     <CardContent className="p-6 space-y-4">
                       {product.image_url && (
                         <div className="w-full h-48 bg-gradient-sunset rounded-2xl overflow-hidden">
-                          <img 
-                            src={product.image_url} 
+                          <img
+                            src={product.image_url}
                             alt={product.name}
                             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                           />
                         </div>
                       )}
-                      
+
                       <div className="space-y-3">
                         <h3 className="text-elderly-xl font-bold text-card-foreground">
                           {product.name}
@@ -204,31 +204,47 @@ const SpiritualProducts = () => {
                     <div className="absolute -top-4 -right-4 text-4xl floating-diya" style={{ animationDelay: "1s" }}>✨</div>
                     <div className="absolute -bottom-4 -left-4 text-3xl floating-diya" style={{ animationDelay: "2s" }}>🌟</div>
                   </div>
-                  
+
                   <div className="space-y-6">
                     <h2 className="text-4xl md:text-5xl font-bold">जल्द आ रहा है</h2>
                     <h3 className="text-2xl md:text-3xl font-medium opacity-90">Coming Soon</h3>
-                    
+
                     <p className="text-elderly-lg leading-relaxed opacity-80 max-w-2xl mx-auto">
-                      हम आपके लिए सभी आध्यात्मिक उत्पादों का एक व्यापक संग्रह तैयार कर रहे हैं। 
+                      हम आपके लिए सभी आध्यात्मिक उत्पादों का एक व्यापक संग्रह तैयार कर रहे हैं।
                       माला, मूर्तियां, गंगा जल, और अन्य पवित्र वस्तुएं जल्द ही उपलब्ध होंगी।
                     </p>
-                    
+
                     <p className="text-elderly-base opacity-70 italic max-w-2xl mx-auto">
-                      We are preparing a comprehensive collection of all spiritual products for you. 
+                      We are preparing a comprehensive collection of all spiritual products for you.
                       Mala, murtis, Ganga jal, and other sacred items will be available soon.
                     </p>
                   </div>
 
                   <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                    <Button variant="outline" size="xl" className="border-2 border-white text-white hover:bg-white hover:text-primary">
-                      <Bell className="w-6 h-6" />
-                      Notify Me When Ready
+                    <Button
+                      variant="outline"
+                      size="xl"
+                      className="w-full flex items-center justify-center gap-2
+             border-2 border-orange-700 text-orange-800 bg-white
+             hover:bg-orange-600 hover:text-white hover:border-orange-600
+             font-semibold rounded-lg transition-all duration-300 text-base sm:text-lg"
+                    >
+                      <Bell className="w-5 h-5 sm:w-6 sm:h-6" />
+                      <span>Notify Me When Ready</span>
                     </Button>
-                    <Button variant="outline" size="xl" className="border-2 border-white text-white hover:bg-white hover:text-primary">
-                      <Gift className="w-6 h-6" />
-                      Request Product
+
+                    <Button
+                      variant="outline"
+                      size="xl"
+                      className="w-full flex items-center justify-center gap-2
+             border-2 border-orange-700 text-orange-800 bg-white
+             hover:bg-orange-600 hover:text-white hover:border-orange-600
+             font-semibold rounded-lg transition-all duration-300 text-base sm:text-lg"
+                    >
+                      <Gift className="w-5 h-5 sm:w-6 sm:h-6" />
+                      <span>Request Product</span>
                     </Button>
+
                   </div>
                 </CardContent>
               </Card>
@@ -253,7 +269,7 @@ const SpiritualProducts = () => {
                     <div className="text-6xl group-hover:scale-110 transition-transform duration-300">
                       {category.icon}
                     </div>
-                    
+
                     <div className="space-y-3">
                       <h3 className="text-elderly-xl font-bold text-card-foreground">
                         {category.category}
@@ -265,11 +281,10 @@ const SpiritualProducts = () => {
 
                     <div className="space-y-2">
                       {category.items.map((item, itemIndex) => (
-                        <div key={itemIndex} className={`p-2 rounded-lg text-elderly-sm ${
-                          itemIndex % 2 === 0 
-                            ? "bg-gradient-sunset text-card-foreground" 
-                            : "text-muted-foreground"
-                        }`}>
+                        <div key={itemIndex} className={`p-2 rounded-lg text-elderly-sm ${itemIndex % 2 === 0
+                          ? "bg-gradient-sunset text-card-foreground"
+                          : "text-muted-foreground"
+                          }`}>
                           {item}
                         </div>
                       ))}
@@ -288,41 +303,7 @@ const SpiritualProducts = () => {
             </div>
           </div>
 
-          {/* Notification Section */}
-          <div className="mt-16 max-w-2xl mx-auto">
-            <Card className="bg-gradient-sunset border-2 border-primary/20 rounded-3xl overflow-hidden">
-              <CardContent className="p-8 text-center space-y-6">
-                <div className="w-16 h-16 bg-gradient-divine rounded-full flex items-center justify-center mx-auto">
-                  <Sparkles className="w-8 h-8 text-primary-foreground" />
-                </div>
-                
-                <div className="space-y-4">
-                  <h3 className="text-2xl md:text-3xl font-bold text-primary">
-                    अपडेट के लिए सूचना पाएं
-                  </h3>
-                  <p className="text-elderly-lg text-muted-foreground">
-                    Get Notified for Updates
-                  </p>
-                  <p className="text-elderly-base text-muted-foreground leading-relaxed">
-                    जैसे ही आध्यात्मिक उत्पाद उपलब्ध होंगे, हम आपको सूचित करेंगे। 
-                    अपना नंबर दें और सबसे पहले जानें।
-                  </p>
-                </div>
 
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <input
-                    type="tel"
-                    placeholder="+91 98765 43210"
-                    className="flex-1 p-4 text-elderly-base border-2 border-border rounded-xl focus:border-primary focus:outline-none"
-                  />
-                  <Button variant="divine" size="lg">
-                    <Bell className="w-5 h-5" />
-                    Notify Me
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
         </div>
       </main>
       <Footer />

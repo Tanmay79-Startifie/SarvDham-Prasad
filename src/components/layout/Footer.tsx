@@ -65,13 +65,13 @@ const Footer = () => {
                   </p>
                 </div>
               </div>
-              <div className="flex items-center space-x-3">
+              {/* <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-primary" />
-                <p className="text-elderly-base text-muted-foreground">+91 98765 43210</p>
-              </div>
+                <p className="text-elderly-base text-muted-foreground">+91 7073516774</p>
+              </div> */}
               <div className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-primary" />
-                <p className="text-elderly-base text-muted-foreground">contact@brajdivine.com</p>
+                <p className="text-elderly-base text-muted-foreground">sarvdhamprasad@gmail.com</p>
               </div>
             </div>
           </div>
@@ -106,7 +106,7 @@ const Footer = () => {
         <div className="mt-12 pt-8 border-t border-border">
           <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
             <p className="text-elderly-base text-muted-foreground text-center md:text-left">
-              © 2024 ब्रज दिव्य डिलीवरी। सभी अधिकार सुरक्षित।
+              © 2024 सर्वधाम प्रसाद। सभी अधिकार सुरक्षित।
             </p>
             <div className="flex items-center space-x-2 text-elderly-base text-muted-foreground">
               <span>Made with</span>

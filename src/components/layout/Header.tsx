@@ -22,23 +22,32 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2 lg:space-x-3 group">
-            <div className="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-divine rounded-xl flex items-center justify-center shadow-golden group-hover:shadow-golden-lg transition-all duration-300 group-hover:scale-110">
-              <img
-                src={logo}
-                alt="SarvdhamPrasad Logo"
-                className="w-8 h-8 lg:w-10 lg:h-10 object-contain group-hover:animate-pulse"
-              />
-            </div>
-            <div className="hidden sm:block">
-              <h1 className="text-base lg:text-lg font-bold bg-gradient-divine bg-clip-text text-transparent leading-none">
-                सर्वधाम प्रसाद
-              </h1>
-              <p className="text-sm lg:text-base text-muted-foreground leading-none">
-                SarvDham Prasad
-              </p>
-            </div>
-          </Link>
+<Link to="/" className="flex items-center space-x-2 lg:space-x-3 group" aria-label="SarvdhamPrasad home">
+  <div className="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-divine rounded-xl flex items-center justify-center shadow-golden transition-all duration-300">
+    <img
+      src={logo}
+      alt="SarvdhamPrasad Logo"
+      className="w-8 h-8 lg:w-10 lg:h-10 object-contain"
+    />
+  </div>
+
+  {/* compact on xs, expanded on sm+ */}
+  <div className="flex flex-col sm:flex-col">
+    {/* mobile (single small line) */}
+    <span className="block sm:hidden text-sm font-semibold text-primary">सर्वधाम प्रसाद</span>
+
+    {/* tablet+ (bigger stacked) */}
+    <div className="hidden sm:block">
+      <h1 className="text-base lg:text-lg font-bold bg-gradient-divine bg-clip-text text-transparent leading-none">
+        सर्वधाम प्रसाद
+      </h1>
+      <p className="text-sm lg:text-base text-muted-foreground leading-none">
+        SarvDham Prasad
+      </p>
+    </div>
+  </div>
+</Link>
+
 
 
           {/* Desktop Navigation */}
@@ -64,16 +73,7 @@ const Header = () => {
 
           {/* Contact Info & Mobile Menu */}
           <div className="flex items-center space-x-2 lg:space-x-4">
-            <div className="hidden xl:flex items-center space-x-4 text-sm text-muted-foreground bg-muted/20 rounded-full px-4 py-2 border border-border/30">
-              <div className="flex items-center space-x-1 hover:text-primary transition-colors">
-                <Phone className="w-3 h-3" />
-                <span className="hidden 2xl:inline">+91 98765 43210</span>
-              </div>
-              <div className="flex items-center space-x-1 hover:text-primary transition-colors">
-                <MapPin className="w-3 h-3" />
-                <span className="hidden 2xl:inline">Mathura, UP</span>
-              </div>
-            </div>
+            
 
             {/* Mobile Menu Button */}
             <Button
@@ -108,16 +108,7 @@ const Header = () => {
                 </Button>
               </Link>
             ))}
-            <div className="pt-4 border-t border-border/50 space-y-3 bg-muted/20 rounded-xl p-4 mt-4">
-              <div className="flex items-center space-x-2 text-base text-muted-foreground hover:text-primary transition-colors">
-                <Phone className="w-4 h-4" />
-                <span>+91 98765 43210</span>
-              </div>
-              <div className="flex items-center space-x-2 text-base text-muted-foreground hover:text-primary transition-colors">
-                <MapPin className="w-4 h-4" />
-                <span>Mathura, Uttar Pradesh</span>
-              </div>
-            </div>
+            
           </div>
         )}
       </div>

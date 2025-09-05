@@ -5,26 +5,82 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Phone, Mail, MapPin, Clock, Send, Heart } from "lucide-react";
 import { useState } from "react";
 
+type FormState = {
+  name: string;
+  email: string;
+  phone: string;
+  subject: string;
+  message: string;
+};
+
+const FORM_ID = "movnpprl";
+const FORMSPREE_ENDPOINT = `https://formspree.io/f/${FORM_ID}`;
+
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    subject: '',
-    message: ''
+  const [formData, setFormData] = useState<FormState>({
+    name: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">(
+    "idle"
+  );
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send the form data to your backend
-    alert('आपका संदेश भेज दिया गया है! हम जल्द ही आपसे संपर्क करेंगे। Your message has been sent! We will contact you soon.');
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      subject: '',
-      message: ''
-    });
+
+    // Basic client-side required validation
+    if (!formData.name || !formData.email || !formData.subject || !formData.message) {
+      setErrorMessage("कृपया सभी आवश्यक फ़ील्ड भरें। Please fill all required fields.");
+      setStatus("error");
+      return;
+    }
+
+    setStatus("loading");
+    setErrorMessage(null);
+
+    try {
+      const resp = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          subject: formData.subject,
+          message: formData.message,
+        }),
+      });
+
+      if (resp.ok) {
+        setStatus("success");
+        setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
+      } else {
+        const data = await resp.json().catch(() => null);
+        const msg =
+          data && data.error
+            ? data.error
+            : "Submission failed. Please try again later.";
+        setErrorMessage(msg);
+        setStatus("error");
+      }
+    } catch (err) {
+      console.error("Form submit error:", err);
+      setErrorMessage("नेटवर्क त्रुटि — कृपया बाद में प्रयास करें. Network error, please try again.");
+      setStatus("error");
+    }
+
+    // clear success/error message after some time (optional)
+    if (status === "success") {
+      setTimeout(() => setStatus("idle"), 6000);
+    }
   };
 
   return (
@@ -58,7 +114,7 @@ const Contact = () => {
                   <p className="text-elderly-lg text-muted-foreground">Send Us a Message</p>
                 </div>
 
-                <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6" aria-live="polite">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-elderly-base font-medium text-card-foreground mb-2">
@@ -68,12 +124,13 @@ const Contact = () => {
                         type="text"
                         required
                         value={formData.name}
-                        onChange={(e) => setFormData({...formData, name: e.target.value})}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         className="w-full p-3 sm:p-4 text-elderly-base border-2 border-border rounded-xl focus:border-primary focus:outline-none"
                         placeholder="Your full name"
+                        aria-label="Name"
                       />
                     </div>
-                    
+
                     <div>
                       <label className="block text-elderly-base font-medium text-card-foreground mb-2">
                         मोबाइल | Phone
@@ -81,9 +138,10 @@ const Contact = () => {
                       <input
                         type="tel"
                         value={formData.phone}
-                        onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         className="w-full p-3 sm:p-4 text-elderly-base border-2 border-border rounded-xl focus:border-primary focus:outline-none"
                         placeholder="+91 98765 43210"
+                        aria-label="Phone"
                       />
                     </div>
                   </div>
@@ -96,9 +154,10 @@ const Contact = () => {
                       type="email"
                       required
                       value={formData.email}
-                      onChange={(e) => setFormData({...formData, email: e.target.value})}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       className="w-full p-3 sm:p-4 text-elderly-base border-2 border-border rounded-xl focus:border-primary focus:outline-none"
                       placeholder="your.email@example.com"
+                      aria-label="Email"
                     />
                   </div>
 
@@ -109,8 +168,9 @@ const Contact = () => {
                     <select
                       required
                       value={formData.subject}
-                      onChange={(e) => setFormData({...formData, subject: e.target.value})}
+                      onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                       className="w-full p-3 sm:p-4 text-elderly-base border-2 border-border rounded-xl focus:border-primary focus:outline-none"
+                      aria-label="Subject"
                     >
                       <option value="">Select subject</option>
                       <option value="prasad_inquiry">प्रसाद पूछताछ | Prasad Inquiry</option>
@@ -128,17 +188,42 @@ const Contact = () => {
                     <textarea
                       required
                       value={formData.message}
-                      onChange={(e) => setFormData({...formData, message: e.target.value})}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       className="w-full p-3 sm:p-4 text-elderly-base border-2 border-border rounded-xl focus:border-primary focus:outline-none"
                       rows={5}
                       placeholder="Please write your message here..."
+                      aria-label="Message"
                     />
                   </div>
 
-                  <Button type="submit" variant="divine" size="lg" className="w-full text-sm sm:text-base">
+                  <Button
+                    type="submit"
+                    variant="divine"
+                    size="lg"
+                    className="w-full text-sm sm:text-base"
+                    disabled={status === "loading"}
+                    aria-disabled={status === "loading"}
+                    aria-busy={status === "loading"}
+                  >
                     <Send className="w-4 h-4 sm:w-6 sm:h-6" />
-                    <span className="truncate">संदेश भेजें | Send Message</span>
+                    <span className="truncate">
+                      {status === "loading" ? "भेजा जा रहा है..." : "संदेश भेजें | Send Message"}
+                    </span>
                   </Button>
+
+                  {/* Status messages */}
+                  <div className="min-h-8">
+                    {status === "success" && (
+                      <p className="text-green-600 text-center" role="status">
+                        ✅ आपका संदेश सफलतापूर्वक भेज दिया गया! We will contact you soon.
+                      </p>
+                    )}
+                    {status === "error" && (
+                      <p className="text-red-600 text-center" role="alert">
+                        ❌ {errorMessage ?? "कुछ गड़बड़ हो गई — कृपया पुनः प्रयास करें।"}
+                      </p>
+                    )}
+                  </div>
                 </form>
               </CardContent>
             </Card>
@@ -175,9 +260,8 @@ const Contact = () => {
                       <div>
                         <h3 className="text-elderly-lg font-semibold text-card-foreground mb-2">फोन | Phone</h3>
                         <p className="text-sm sm:text-elderly-base text-muted-foreground">
-                          मुख्य लाइन | Main Line: <br className="sm:hidden" /><strong>+91 98765 43210</strong><br />
-                          व्हाट्सऐप | WhatsApp: <br className="sm:hidden" /><strong>+91 98765 43211</strong><br />
-                          टोल फ्री | Toll Free: <br className="sm:hidden" /><strong>1800-123-4567</strong>
+                          व्हाट्सऐप | WhatsApp: <br className="sm:hidden" /><strong>+91 7073516774</strong><br />
+                          टोल फ्री | Toll Free: <br className="sm:hidden" /><strong>+91 7073516774</strong>
                         </p>
                       </div>
                     </div>
@@ -187,9 +271,8 @@ const Contact = () => {
                       <div>
                         <h3 className="text-elderly-lg font-semibold text-card-foreground mb-2">ईमेल | Email</h3>
                         <p className="text-sm sm:text-elderly-base text-muted-foreground">
-                          सामान्य | General: <br className="sm:hidden" /><strong className="break-all">contact@brajdivine.com</strong><br />
-                          सहायता | Support: <br className="sm:hidden" /><strong className="break-all">support@brajdivine.com</strong><br />
-                          ऑर्डर | Orders: <br className="sm:hidden" /><strong className="break-all">orders@brajdivine.com</strong>
+                          सामान्य | General: <br className="sm:hidden" /><strong className="break-all">sarvdhamprasad@gmail.com</strong><br />
+                          सहायता | Support: <br className="sm:hidden" /><strong className="break-all">sarvdhamprasad@gmail.com</strong>
                         </p>
                       </div>
                     </div>
@@ -210,24 +293,6 @@ const Contact = () => {
                   </div>
                 </CardContent>
               </Card>
-
-              {/* Emergency Contact */}
-              <Card className="bg-accent text-accent-foreground border-none rounded-3xl overflow-hidden">
-                <CardContent className="p-4 sm:p-6 lg:p-8 text-center space-y-4 sm:space-y-6">
-                  <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto">
-                    <Heart className="w-8 h-8" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl sm:text-2xl font-bold mb-2">आपातकालीन सहायता</h3>
-                    <p className="text-elderly-lg mb-2">Emergency Support</p>
-                    <p className="text-sm sm:text-elderly-base opacity-90 mb-4">
-                      त्योहारों और विशेष अवसरों पर 24/7 उपलब्ध<br />
-                      Available 24/7 during festivals and special occasions
-                    </p>
-                    <p className="text-xl sm:text-2xl font-bold">+91 99999 88888</p>
-                  </div>
-                </CardContent>
-              </Card>
             </div>
           </div>
 
@@ -239,7 +304,7 @@ const Contact = () => {
                   <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-4">हमारा स्थान</h2>
                   <p className="text-elderly-lg text-muted-foreground">Our Location</p>
                 </div>
-                
+
                 <div className="bg-gradient-sunset rounded-2xl p-4 sm:p-6 lg:p-8 text-center">
                   <div className="text-4xl sm:text-5xl lg:text-6xl mb-4">🗺️</div>
                   <p className="text-elderly-lg text-muted-foreground">

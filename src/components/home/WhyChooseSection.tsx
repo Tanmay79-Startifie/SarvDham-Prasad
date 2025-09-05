@@ -115,22 +115,22 @@ const WhyChooseSection = () => {
         </div>
 
         {/* Contact CTA */}
-        <div className="mt-16 text-center">
-          <Card className="inline-block bg-background border-2 border-primary/30 rounded-3xl overflow-hidden">
-            <CardContent className="p-8 space-y-6">
-              <div className="flex items-center justify-center space-x-4">
-                <Phone className="w-8 h-8 text-primary" />
-                <div className="text-left">
-                  <p className="text-elderly-lg font-semibold text-card-foreground">
+        <div className="mt-16 px-4">
+          <Card className="max-w-md mx-auto bg-background border-2 border-primary/30 rounded-3xl overflow-hidden">
+            <CardContent className="p-4 sm:p-6 lg:p-8 space-y-4 sm:space-y-6">
+              <div className="flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-4">
+                <Phone className="w-6 h-6 sm:w-8 sm:h-8 text-primary flex-shrink-0" />
+                <div className="text-center sm:text-left">
+                  <p className="text-base sm:text-elderly-lg font-semibold text-card-foreground">
                     सहायता चाहिए? | Need Help?
                   </p>
-                  <p className="text-elderly-base text-primary font-medium">
+                  <p className="text-sm sm:text-elderly-base text-primary font-medium">
                     +91 98765 43210
                   </p>
                 </div>
               </div>
-              <Button variant="divine" size="lg">
-                <Phone className="w-5 h-5" />
+              <Button variant="divine" size="lg" className="w-full">
+                <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
                 अभी कॉल करें | Call Now
               </Button>
             </CardContent>

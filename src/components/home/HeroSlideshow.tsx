@@ -2,9 +2,9 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
-import heroMathura from "@/assets/hero-mathura.jpg";
-import heroVrindavan from "@/assets/hero-vrindavan.jpg";
-import heroBarsana from "@/assets/hero-barsana.jpg";
+import heroMathura from "@/assets/mathura.jpg";
+import heroVrindavan from "@/assets/vrindha.jpg";
+import heroBarsana from "@/assets/brsana.jpg";
 
 const slides = [
   {
@@ -73,18 +73,12 @@ const HeroSlideshow = () => {
         </div>
       ))}
 
-      {/* Floating spiritual elements */}
-      <div className="absolute top-10 right-10 lg:top-20 lg:right-20 text-4xl lg:text-6xl text-primary-glow/30 floating-diya hidden md:block">
-        🪔
-      </div>
-      <div className="absolute bottom-16 right-16 lg:bottom-32 lg:right-32 text-3xl lg:text-4xl text-primary-glow/30 floating-diya hidden md:block" style={{ animationDelay: "1s" }}>
-        🌺
-      </div>
+      
 
       {/* Content */}
-      <div className="absolute inset-0 flex flex-col justify-center px-4 py-8 sm:px-0">
-        <div className="container mx-auto">
-          <div className="max-w-4xl px-4">
+      <div className="absolute inset-0 flex flex-col justify-center px-2 py-4 sm:px-4 sm:py-8">
+        <div className="container mx-auto max-w-full overflow-hidden">
+          <div className="max-w-4xl px-2 sm:px-4 w-full">
             {slides.map((slide, index) => (
               <div
                 key={index}
@@ -95,8 +89,8 @@ const HeroSlideshow = () => {
                 }`}
               >
                 {index === currentSlide && (
-                    <div className="space-y-3 sm:space-y-4 md:space-y-6 text-white">
-              
+                    <div className="space-y-3 sm:space-y-4 md:space-y-6 text-white m-2">
+                   
 
                     {/* Title */}
                     <div className="space-y-1 sm:space-y-2">
@@ -109,7 +103,7 @@ const HeroSlideshow = () => {
                     </div>
 
                     {/* Quote */}
-                    <div className="bg-black/30 backdrop-blur-sm rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 border border-primary-glow/30 max-w-xs sm:max-w-2xl">
+                    <div className="bg-black/30 backdrop-blur-sm rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 border border-primary-glow/30 max-w-full sm:max-w-2xl">
                       <blockquote className="space-y-1 sm:space-y-2 md:space-y-3">
                         <p className="text-base sm:text-lg md:text-2xl lg:text-3xl font-medium text-center">
                           "{slide.quote}"
