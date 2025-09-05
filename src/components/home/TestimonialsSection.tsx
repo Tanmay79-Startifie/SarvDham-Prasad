@@ -8,8 +8,8 @@ const testimonials = [
     location: "दिल्ली",
     englishLocation: "Delhi",
     rating: 5,
-    testimonial: "ब्रज दिव्य डिलीवरी से मिला प्रसाद बिल्कुल मंदिर जैसा ताज़ा और शुद्ध था। भगवान का आशीर्वाद घर तक पहुंच गया।",
-    englishTestimonial: "The prasad from Braj Divine Delivery was as fresh and pure as from the temple. Lord's blessings reached our home.",
+    testimonial: "सर्वधाम प्रसाद से मिला प्रसाद बिल्कुल मंदिर जैसा ताज़ा और शुद्ध था। भगवान का आशीर्वाद घर तक पहुंच गया।",
+    englishTestimonial: "The prasad from SarvDham Prasad was as fresh and pure as from the temple. Lord's blessings reached our home.",
     image: "/placeholder.svg"
   },
   {

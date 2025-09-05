@@ -1,15 +1,26 @@
 import { Button } from "@/components/ui/button";
 import { Heart, Users, Shield, Clock } from "lucide-react";
 import { useState, useEffect } from "react";
-import heroBarsana from "@/assets/hero-barsana.jpg";
-import heroMathura from "@/assets/hero-mathura.jpg";
-import heroVrindavan from "@/assets/hero-vrindavan.jpg";
+import srv1 from "@/assets/srv1.jpg";
+import srv2 from "@/assets/srv2.jpeg";
+import srv3 from "@/assets/srv3.jpg";
+import srv4 from "@/assets/sarv4.jpg";
+import srv5 from "@/assets/srv5.jpg";
+import srv6 from "@/assets/srv6.jpg";
+import srv7 from "@/assets/srv7.jpg";
+import srv8 from "@/assets/srv8.jpg";
+
 
 const AboutSection = () => {
   const slideImages = [
-    { src: heroBarsana, alt: "Barsana Temple" },
-    { src: heroMathura, alt: "Mathura Temple" },
-    { src: heroVrindavan, alt: "Vrindavan Temple" }
+    { src: srv1, alt: " Temple" },
+    { src: srv2, alt: " Temple" },
+    { src: srv3, alt: " Temple" },
+    { src: srv4, alt: " Temple" },
+    { src: srv5, alt: " Temple" },
+    { src: srv6, alt: " Temple" },
+    { src: srv7, alt: " Temple" },
+    { src:srv8, alt: " Temple" },
   ];
 
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -71,12 +82,12 @@ const AboutSection = () => {
 
             <div className="space-y-6 text-elderly-lg leading-relaxed text-muted-foreground">
               <p>
-                <strong className="text-primary">ब्रज दिव्य डिलीवरी</strong> का उद्देश्य ब्रज धाम के पवित्र मंदिरों से प्राप्त 
+                <strong className="text-primary">सर्वधाम प्रसाद</strong> का उद्देश्य ब्रज धाम के पवित्र मंदिरों से प्राप्त 
                 दिव्य प्रसाद को आपके घर तक पहुंचाना है। हम मानते हैं कि भगवान का प्रसाद हर भक्त का अधिकार है।
               </p>
               
               <p>
-                Our mission at <strong className="text-primary">Braj Divine Delivery</strong> is to bridge the 
+                Our mission at <strong className="text-primary">SarvDham Prasad</strong> is to bridge the 
                 distance between devotees and the sacred temples of Braj Dham. We ensure that the divine 
                 blessings reach every devotee's home with complete purity and devotion.
               </p>
@@ -115,7 +126,7 @@ const AboutSection = () => {
           <div className="relative">
             <div className="relative bg-gradient-sunset rounded-3xl p-8 shadow-divine">
               {/* Slideshow Container */}
-              <div className="relative w-full h-[500px] rounded-2xl overflow-hidden">
+              <div className="relative w-full h-[650px] rounded-2xl overflow-hidden">
                 {slideImages.map((image, index) => (
                   <img
                     key={index}
@@ -145,13 +156,7 @@ const AboutSection = () => {
                 </div>
               </div>
               
-              {/* Floating elements */}
-              <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-divine rounded-full flex items-center justify-center shadow-golden floating-diya">
-                <span className="text-2xl">🪔</span>
-              </div>
-              <div className="absolute -bottom-4 -left-4 w-12 h-12 bg-gradient-golden rounded-full flex items-center justify-center shadow-soft floating-diya" style={{ animationDelay: "1s" }}>
-                <span className="text-xl">🌺</span>
-              </div>
+              
             </div>
             
             {/* Stats overlay */}
